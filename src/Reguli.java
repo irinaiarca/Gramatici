@@ -1,15 +1,15 @@
 
-public class Reguli 
+public class Reguli
 {
-    private String[] stanga = new String[20], dreapta = new String[20];
+    private String[] stanga = new String[100], dreapta = new String[100];
     private int numarreguli;
 
-    public String getStanga(int i) 
+    public String getStanga(int i)
     {
         return stanga[i];
     }
 
-    public void setStanga(String stanga, int i) 
+    public void setStanga(String stanga, int i)
     {
         this.stanga[i] = stanga;
     }
@@ -24,7 +24,7 @@ public class Reguli
         return dreapta[i];
     }
 
-    public void setDreapta(String dreapta, int i) 
+    public void setDreapta(String dreapta, int i)
     {
         this.dreapta[i] = dreapta;
     }
@@ -42,6 +42,6 @@ public class Reguli
     public void setNumarreguli(int numarreguli) {
         this.numarreguli = numarreguli;
     }
-    
-    
+
+
 }

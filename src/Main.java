@@ -8,7 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class Main 
+public class Main
 {
 
     public static void main(String[] args)
@@ -34,39 +34,36 @@ public class Main
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        
+        }
+
         for(int i=0; i<10; i++)
         {
             String s = "S";
-            
-            int[] listareguli = new int[100];
-            int aux = 0;
-            int n = r.getNumarreguli();
-            for(int k=0; k < n; k++)
-            {
-                System.out.println("k este: " + k);
-                System.out.println("nr reguli: " + r.getNumarreguli());
-                if (s.contains(r.getStanga(k)))
+
+            do {
+
+                int[] listareguli = new int[100];
+                int aux = 0;
+                int n = r.getNumarreguli();
+                for(int k=0; k < n; k++)
                 {
-                    listareguli[aux] = k;
-                    aux++;
+                    if (s.contains(r.getStanga(k)))
+                    {
+                        listareguli[aux] = k;
+                        aux++;
+                    }
                 }
-            }
+                Random randomGenerator = new Random();
+                int reg;
+                int a=0;
+                while(a < 100)
+                {
+                    reg = listareguli[randomGenerator.nextInt(listareguli.length)];
+                    s = s.replaceFirst(r.getStanga(reg), r.getDreapta(reg));
+                    a++;
+                }
+            } while (!s.toLowerCase().equals(s));
             System.out.println(s);
-            Random randomGenerator = new Random();
-            int reg;
-            int a=0;
-            while(a < 100)
-            {
-                reg = listareguli[randomGenerator.nextInt(listareguli.length)];
-                s = s.replaceFirst(r.getStanga(reg), r.getDreapta(reg));
-                a++;
-            }
-            if (s.toLowerCase().equals(s))
-                System.out.println(s);
-            else
-                i--;
         }
     }
  }
